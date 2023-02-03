@@ -1,0 +1,49 @@
+<div class="container mx-auto mt-10 border border-2 border-slate-900 rounded-2xl p-10">
+  <form [formGroup]="tvShowGroup">
+    <div class="flex flex-col">
+      <label for="show-title" class="text-white pb-2">Name of the TV show</label>
+      <input id="show-title" class="bg-gray-900 rounded-2xl h-12 p-5 text-white focus:outline-0" type="text"
+             formControlName="title"/>
+    </div>
+
+    <div class="p-3 text-white bg-red-800 border border-2 border-red-900 rounded-2xl mt-5" *ngIf="
+    tvShowGroup.get('title')?.errors && tvShowGroup.get('title')?.touched
+">
+      Please enter a title
+    </div>
+
+    <div class="flex flex-col mt-5">
+      <label for="show-cover-image" class="text-white pb-2">Image URL</label>
+      <input id="show-cover-image" class="bg-gray-900 rounded-2xl h-12 p-5 text-white focus:outline-0" type="text"
+             formControlName="coverImageUrl"/>
+    </div>
+
+    <div class="p-3 text-white bg-red-800 border border-2 border-red-900 rounded-2xl mt-5" *ngIf="
+    tvShowGroup.get('coverImageUrl')?.errors && tvShowGroup.get('coverImageUrl')?.touched
+">
+      Please enter a title
+    </div>
+
+
+    <div class="flex flex-col mt-5">
+      <label for="show-rating" class="text-white pb-2">Rating</label>
+      <input id="show-rating" class="bg-gray-900 rounded-2xl h-12 p-5 text-white focus:outline-0" type="number"
+             formControlName="rating"/>
+    </div>
+
+    <div class="p-3 text-white bg-red-800 border border-2 border-red-900 rounded-2xl mt-5" *ngIf="
+    tvShowGroup.get('rating')?.errors && tvShowGroup.get('rating')?.touched
+">
+      Please enter a title
+    </div>
+
+
+    <div class="w-full flex justify-end">
+      <button
+        (click)="submit()"
+        class="rounded-2xl text-white bg-gray-900 h-12 p-2 pl-5 pr-5 mt-10 hover:border hover:border-2 hover:border-red-900">
+        Save TV show
+      </button>
+    </div>
+  </form>
+</div>
